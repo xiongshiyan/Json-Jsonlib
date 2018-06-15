@@ -9,7 +9,7 @@ import java.util.Set;
  * 代表一个Json Object , 本质上可以看作一个map
  * @author xiongshiyan at 2018/6/10
  */
-public interface JsonObject extends Json<JsonObject>, Serializable{
+public interface JsonObject extends Json<JsonObject>, Serializable {
 
     /**
      * 根据key获取对象
@@ -169,18 +169,70 @@ public interface JsonObject extends Json<JsonObject>, Serializable{
      */
     <T> T get(String key, Class<T> clazz);
 
+    /**
+     * 获取所有的key
+     * @return set of keys
+     */
     Set<String> keySet();
+
+    /**
+     * 有多少个key
+     * @return numbers of key
+     */
     int size();
+
+    /**
+     * 是否是空
+     * @return true if 空
+     */
     boolean isEmpty();
+
+    /**
+     * 是否包含某个key
+     * @param key 指定的key
+     * @return true if contains
+     */
     boolean containsKey(String key);
+
+    /**
+     * 是否包含某个value
+     * @param value 指定的value
+     * @return true if contains
+     */
     boolean containsValue(Object value);
-    void clear();
+
+    /**
+     * 清空
+     * @return this
+     */
+    JsonObject clear();
+
+    /**
+     * 去除某个key
+     * @param key 指定的key
+     * @return key对应的值
+     */
     Object remove(String key);
+
+    /**
+     * 从给定的map解析出JsonObject
+     * @param map map
+     * @return 解析的JsonObject
+     */
     JsonObject fromMap(Map<String, Object> map);
 
-    /////////////////////put/change-related method////////////////////////
-
+    /**
+     * 放入某个key-value
+     * @param key key
+     * @param value value
+     * @return this
+     */
     JsonObject put(String key, Object value);
 
+    /**
+     * 将一个map的所有key-value放入
+     * @param m map
+     * @return this
+     */
     JsonObject putAll(Map<? extends String, ? extends Object> m);
 }

@@ -270,8 +270,9 @@ public abstract class BaseMapJSONObject extends BaseJson<BaseMapJSONObject> impl
         return this;
     }
     @Override
-    public void clear() {
+    public JsonObject clear() {
         map.clear();
+        return this;
     }
 
     @Override
