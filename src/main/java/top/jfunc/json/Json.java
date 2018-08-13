@@ -1,4 +1,4 @@
-package cn.zytx.common.json;
+package top.jfunc.json;
 
 /**
  * 代表一个JsonObject/JsonArray

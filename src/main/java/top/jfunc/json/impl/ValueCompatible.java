@@ -1,4 +1,4 @@
-package cn.zytx.common.json.impl;
+package top.jfunc.json.impl;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -1,7 +1,7 @@
-package cn.zytx.common.json.impl;
+package top.jfunc.json.impl;
 
-import cn.zytx.common.json.Json;
-import cn.zytx.common.json.JsonException;
+import top.jfunc.json.Json;
+import top.jfunc.json.JsonException;
 
 /**
  * 提供一些公共的校验方法和特性，子类负责实现

@@ -1,4 +1,4 @@
-package cn.zytx.common.json;
+package top.jfunc.json;
 
 /**
  * 1.JavaBean序列化为String

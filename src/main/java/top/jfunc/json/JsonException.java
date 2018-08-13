@@ -1,4 +1,4 @@
-package cn.zytx.common.json;
+package top.jfunc.json;
 
 /**
  * @author xiongshiyan at 2018/6/10

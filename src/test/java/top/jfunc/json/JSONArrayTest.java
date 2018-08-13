@@ -1,7 +1,10 @@
-package cn.zytx.common.json;
+package top.jfunc.json;
 
-import cn.zytx.common.json.impl.JSONArray;
-import cn.zytx.common.json.impl.JSONObject;
+import top.jfunc.json.JsonArray;
+import top.jfunc.json.JsonException;
+import top.jfunc.json.JsonObject;
+import top.jfunc.json.impl.JSONArray;
+import top.jfunc.json.impl.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 

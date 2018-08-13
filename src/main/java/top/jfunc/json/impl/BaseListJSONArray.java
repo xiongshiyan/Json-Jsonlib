@@ -1,6 +1,6 @@
-package cn.zytx.common.json.impl;
+package top.jfunc.json.impl;
 
-import cn.zytx.common.json.JsonArray;
+import top.jfunc.json.JsonArray;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
