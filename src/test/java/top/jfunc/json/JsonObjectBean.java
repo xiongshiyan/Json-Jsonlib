@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * @author xiongshiyan at 2018/6/11
  */
-public class FastJsonObjectBean {
+public class JsonObjectBean {
     private String k1;
     private String k2;
     private Boolean boolean1;
@@ -101,7 +101,7 @@ public class FastJsonObjectBean {
 
     @Override
     public String toString() {
-        return "FastJsonObjectBean{" +
+        return "JsonObjectBean{" +
                 "k1='" + k1 + '\'' +
                 ", k2='" + k2 + '\'' +
                 ", boolean1=" + boolean1 +

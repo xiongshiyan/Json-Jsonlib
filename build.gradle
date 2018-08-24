@@ -3,6 +3,8 @@ def ARTIFACT_ID = 'json-jsonlib'
 def GROUP_ID = 'top.jfunc.json'
 def TYPE = 'jar'
 def DESCRIPTION = 'common json interface implements by jsonlib'
+def gitUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib.git'
+def siteUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib'
 
 group GROUP_ID
 version VERSION
@@ -35,6 +37,7 @@ repositories {
 }
 
 dependencies {
+    compile 'top.jfunc.json:common-json:1.0'
     compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.4', classifier:'jdk15'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
@@ -67,9 +70,6 @@ publishing {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
-def gitUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib.git'
-def siteUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib'
 
 install {
     repositories.mavenInstaller {

@@ -257,7 +257,7 @@ public class JSONObjectTest {
 
     @Test
     public void serialize() throws Exception {
-        FastJsonObjectBean javaBean = new FastJsonObjectBean();
+        JsonObjectBean javaBean = new JsonObjectBean();
         javaBean.setK1("11");
         String serialize = jsonObject.serialize(javaBean);
         System.out.println(serialize);
@@ -265,10 +265,10 @@ public class JSONObjectTest {
 
     @Test
     public void deserialize() throws Exception {
-        FastJsonObjectBean deserialize = jsonObject.deserialize("{\"k1\":\"11\"}", FastJsonObjectBean.class);
+        JsonObjectBean deserialize = jsonObject.deserialize("{\"k1\":\"11\"}", JsonObjectBean.class);
         System.out.println(deserialize);
 
-        FastJsonObjectBean deserialize1 = jsonObject.deserialize("{\"bigDecimal1\":1,\"bigInteger1\":1,\"boolean1\":true,\"double1\":1,\"float1\":1,\"integer1\":1,\"k1\":\"v1\",\"k2\":\"v2\",\"k3\":{\"k1\":\"v1\"},\"long1\":1}", FastJsonObjectBean.class);
+        JsonObjectBean deserialize1 = jsonObject.deserialize("{\"bigDecimal1\":1,\"bigInteger1\":1,\"boolean1\":true,\"double1\":1,\"float1\":1,\"integer1\":1,\"k1\":\"v1\",\"k2\":\"v2\",\"k3\":{\"k1\":\"v1\"},\"long1\":1}", JsonObjectBean.class);
         System.out.println(deserialize1);
     }
 

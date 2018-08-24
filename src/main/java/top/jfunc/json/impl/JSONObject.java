@@ -1,9 +1,9 @@
 package top.jfunc.json.impl;
 
+import net.sf.ezmorph.bean.MorphDynaBean;
 import top.jfunc.json.Json;
 import top.jfunc.json.JsonArray;
 import top.jfunc.json.JsonObject;
-import net.sf.ezmorph.bean.MorphDynaBean;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
