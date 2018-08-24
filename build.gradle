@@ -5,6 +5,7 @@ def TYPE = 'jar'
 def DESCRIPTION = 'common json interface implements by jsonlib'
 def gitUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib.git'
 def siteUrl = 'https://gitee.com/xxssyyyyssxx/Json-Jsonlib'
+def REPO_NAME = 'json'
 
 group GROUP_ID
 version VERSION
@@ -37,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile 'top.jfunc.json:common-json:1.0'
+    compile 'top.jfunc.json:json-common:1.0'
     compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.4', classifier:'jdk15'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
@@ -144,7 +145,7 @@ bintray {
 
     configurations = ['archives']
     pkg {
-        repo = "maven"
+        repo = REPO_NAME
         name = ARTIFACT_ID //项目名称
         websiteUrl = siteUrl
         vcsUrl = gitUrl
