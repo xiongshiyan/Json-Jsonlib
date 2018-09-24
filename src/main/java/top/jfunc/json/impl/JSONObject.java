@@ -1,9 +1,12 @@
 package top.jfunc.json.impl;
 
 import net.sf.ezmorph.bean.MorphDynaBean;
+import net.sf.json.JsonConfig;
 import top.jfunc.json.Json;
 import top.jfunc.json.JsonArray;
 import top.jfunc.json.JsonObject;
+import top.jfunc.json.strategy.IgnorePropertyFilter;
+import top.jfunc.json.strategy.JsonFieldPropertyNameProcessor;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -87,9 +90,16 @@ public class JSONObject extends BaseMapJSONObject {
     }
 
     @Override
-    public String serialize(Object javaBean) {
-        return net.sf.json.JSONObject.fromObject(javaBean).toString();
+    public <T> String serialize(T javaBean, boolean nullHold, String... ignoreFields) {
+        JsonConfig config = new JsonConfig();
+        //config.setExcludes(new String[]{"excludes-field-name"});
+        //config.addIgnoreFieldAnnotation(JsonField.class);
+        config.setJsonPropertyFilter(new IgnorePropertyFilter(nullHold , ignoreFields));
+        config.setIgnoreTransientFields(true);
+        config.registerJsonPropertyNameProcessor(javaBean.getClass(), new JsonFieldPropertyNameProcessor());
+        return net.sf.json.JSONObject.fromObject(javaBean , config).toString();
     }
+
 
     @Override
     public <T> T deserialize(String jsonString, Class<T> clazz) {
