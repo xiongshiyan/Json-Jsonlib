@@ -1,4 +1,4 @@
-package top.jfunc.json.top.jfunc.json.util;
+package top.jfunc.json.util;
 
 import java.lang.reflect.Method;
 

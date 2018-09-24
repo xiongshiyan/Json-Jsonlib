@@ -2,7 +2,7 @@ package top.jfunc.json.strategy;
 
 import net.sf.json.util.PropertyFilter;
 import top.jfunc.json.annotation.JsonField;
-import top.jfunc.json.top.jfunc.json.util.BeanUtil;
+import top.jfunc.json.util.BeanUtil;
 
 import java.lang.reflect.Method;
 
