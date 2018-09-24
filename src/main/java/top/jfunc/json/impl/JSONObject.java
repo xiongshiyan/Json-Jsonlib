@@ -100,8 +100,8 @@ public class JSONObject extends BaseMapJSONObject {
     public String toString() {
         //需要针对JsonObject/JsonArray处理
         Map<String , Json> map = new HashMap<>();
-        for (String key : map.keySet()) {
-            Object o = map.get(key);
+        for (String key : this.map.keySet()) {
+            Object o = this.map.get(key);
             if(o instanceof JsonObject || o instanceof JsonArray){
                 map.put(key , (Json) o);
             }
