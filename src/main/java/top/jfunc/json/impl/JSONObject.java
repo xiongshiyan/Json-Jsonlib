@@ -54,6 +54,11 @@ public class JSONObject extends BaseMapJSONObject {
     }
 
     @Override
+    protected String map2Str(Map<String, Object> map) {
+        return net.sf.json.JSONObject.fromObject(map).toString();
+    }
+
+    @Override
     public JsonObject getJsonObject(String key) {
         assertKey(key);
         //这里不能使用getJSONObject，因为每一种Json实现不一样，给出的JsonObject类型是不一致的。
@@ -104,20 +109,5 @@ public class JSONObject extends BaseMapJSONObject {
     @Override
     public <T> T deserialize(String jsonString, Class<T> clazz) {
         return (T)net.sf.json.JSONObject.toBean(net.sf.json.JSONObject.fromObject(jsonString) , clazz);
-    }
-
-    @Override
-    public String toString() {
-        //需要针对JsonObject/JsonArray处理
-        Map<String , Json> map = new HashMap<>();
-        for (String key : this.map.keySet()) {
-            Object o = this.map.get(key);
-            if(o instanceof JsonObject || o instanceof JsonArray){
-                map.put(key , (Json) o);
-            }
-        }
-        map.forEach((k , v)-> this.map.put(k , v.unwrap()));
-
-        return net.sf.json.JSONObject.fromObject(this.map).toString();
     }
 }
