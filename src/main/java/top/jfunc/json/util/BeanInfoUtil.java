@@ -2,7 +2,7 @@ package top.jfunc.json.util;
 
 import java.lang.reflect.Method;
 
-public class BeanUtil {
+public class BeanInfoUtil {
     /**
      * 根据field 找到相应的getter，可能返回null
      */

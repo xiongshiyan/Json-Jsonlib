@@ -2,7 +2,7 @@ package top.jfunc.json.strategy;
 
 import net.sf.json.processors.PropertyNameProcessor;
 import top.jfunc.json.annotation.JsonField;
-import top.jfunc.json.util.BeanUtil;
+import top.jfunc.json.util.BeanInfoUtil;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +14,7 @@ public class JsonFieldPropertyNameProcessor implements PropertyNameProcessor{
     @Override
     public String processPropertyName(Class javaBeanClass, String name) {
 
-        Method getter = BeanUtil.getGetter(javaBeanClass, name);
+        Method getter = BeanInfoUtil.getGetter(javaBeanClass, name);
         if(null == getter){
             return name;
         }

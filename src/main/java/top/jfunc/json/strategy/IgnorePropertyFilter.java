@@ -2,7 +2,7 @@ package top.jfunc.json.strategy;
 
 import net.sf.json.util.PropertyFilter;
 import top.jfunc.json.annotation.JsonField;
-import top.jfunc.json.util.BeanUtil;
+import top.jfunc.json.util.BeanInfoUtil;
 
 import java.lang.reflect.Method;
 
@@ -25,7 +25,7 @@ public class IgnorePropertyFilter implements PropertyFilter{
             return true;
         }
 
-        Method getter = BeanUtil.getGetter(object.getClass(), name);
+        Method getter = BeanInfoUtil.getGetter(object.getClass(), name);
         if(null != getter){
             JsonField annotation = getter.getAnnotation(JsonField.class);
             if(null != annotation){
