@@ -2,6 +2,7 @@ package top.jfunc.json.impl;
 
 import top.jfunc.json.Json;
 import top.jfunc.json.JsonArray;
+import top.jfunc.json.JsonException;
 import top.jfunc.json.JsonObject;
 
 import java.util.*;
@@ -68,5 +69,21 @@ public class JSONArray extends BaseListJSONArray {
         });
 
         return net.sf.json.JSONArray.fromObject(this.list).toString();
+    }
+
+
+    @Override
+    public Json toJson(Object o) {
+        if(o instanceof List){
+            return new JSONArray((List<Object>) o);
+        }
+        if(o instanceof Map){
+            return new JSONObject((Map<String, Object>) o);
+        }
+        try {
+            return (Json) o;
+        } catch (Exception e) {
+            throw new JsonException("不能将非Json的对象转换为Json");
+        }
     }
 }

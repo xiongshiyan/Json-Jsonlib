@@ -4,6 +4,7 @@ import net.sf.ezmorph.bean.MorphDynaBean;
 import net.sf.json.JsonConfig;
 import top.jfunc.json.Json;
 import top.jfunc.json.JsonArray;
+import top.jfunc.json.JsonException;
 import top.jfunc.json.JsonObject;
 import top.jfunc.json.strategy.IgnorePropertyFilter;
 import top.jfunc.json.strategy.JsonFieldPropertyNameProcessor;
@@ -109,5 +110,21 @@ public class JSONObject extends BaseMapJSONObject {
     @Override
     public <T> T deserialize(String jsonString, Class<T> clazz) {
         return (T)net.sf.json.JSONObject.toBean(net.sf.json.JSONObject.fromObject(jsonString) , clazz);
+    }
+
+
+    @Override
+    public Json toJson(Object o) {
+        if(o instanceof List){
+            return new JSONArray((List<Object>) o);
+        }
+        if(o instanceof Map){
+            return new JSONObject((Map<String, Object>) o);
+        }
+        try {
+            return (Json) o;
+        } catch (Exception e) {
+            throw new JsonException("不能将非Json的对象转换为Json");
+        }
     }
 }
